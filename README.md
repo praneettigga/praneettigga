@@ -1,4 +1,4 @@
-# 💫 About Me:
+# About Me:
 Computer Science Engineering student passionate about full-stack development, system design, Linux, and building products that solve real-world problems.<br><br>🔭 I’m currently working on Divine Foods E-Commerce Platform<br>🌱 I’m currently learning Spring-Boot, PostgreSQL and backend engineering<br>⚡ Fun fact: I'm incredibly passionate about music and have 4 years of experience in Music Production<br>
 
 
@@ -12,4 +12,3 @@ Computer Science Engineering student passionate about full-stack development, sy
 ![](https://streak-stats.demolab.com/?user=praneettigga&theme=transparent&hide_border=false)<br/>
 ![](https://github-readme-stats.shion.dev/api/top-langs/?username=praneettigga&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
