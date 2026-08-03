@@ -1,5 +1,5 @@
 # About Me:
-Computer Science Engineering student passionate about full-stack development, system design, Linux, and building products that solve real-world problems.<br><br>🔭 I’m currently working on Divine Foods E-Commerce Platform<br>🌱 I’m currently learning Spring-Boot, PostgreSQL and backend engineering<br>⚡ Fun fact: I'm incredibly passionate about music and have 4 years of experience in Music Production<br>
+Computer Science Engineering student passionate about full-stack development, system design, Linux, and building products that solve real-world problems.<br><br>I’m currently working on Divine Foods E-Commerce Platform<br>I’m currently learning Spring-Boot, PostgreSQL and backend engineering<br>Fun fact: I'm incredibly passionate about music and have 4 years of experience in Music Production<br>
 
 
 ## 🌐 Socials:
