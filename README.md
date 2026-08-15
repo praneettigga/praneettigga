@@ -41,4 +41,4 @@ geography, budget, and the way people actually travel.
 </div>
 
 
-Inspiration Source: https://github.com/andriidrok1
+Design Inpiration: https://github.com/andriidrok1
