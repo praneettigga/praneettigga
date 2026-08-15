@@ -42,32 +42,4 @@ geography, budget, and the way people actually travel.
 
 <img src="./assets/heading-about-this-profile.svg" width="620" alt="About this profile" />
 
-Every graphic in this README lives in this repository. The portrait is generated from a local<br>
-photo with [`scripts/make_portrait.py`](./scripts/make_portrait.py); GitHub Actions redraws the<br>
-statistics directly from GitHub once a day. The SVG animations use SMIL, so they work without<br>
-JavaScript, external image services, or third-party uptime dependencies.
-
-### Rebuilding the portrait
-
-The original photograph is deliberately not committed. Install the one local dependency and run:
-
-```bash
-python3 -m pip install -r requirements-portrait.txt
-python3 scripts/make_portrait.py /path/to/transparent-cutout.png \
-  --crop 500,0,1550,1400 \
-  --columns 90
-```
-
-Crop coordinates use source-image pixels. Transparent PNGs are composited onto white before
-conversion, preserving their real cutout edge. For images without transparency, optional
-`--mask-points` coordinates are normalized within the crop. Commit the resulting
-`assets/portrait.svg`, not the private source photograph.
-
-### Refreshing the statistics locally
-
-```bash
-GH_LOGIN=praneettigga python3 scripts/generate_stats.py
-```
-
-Without a token, the script bootstraps from GitHub's public profile and repository APIs. The
-scheduled workflow uses its built-in `GITHUB_TOKEN` and GitHub's GraphQL API instead.
+Inspiration Source: https://github.com/andriidrok1
