@@ -1,14 +1,73 @@
-# About Me:
-Computer Science Engineering student passionate about full-stack development, system design, Linux, and building products that solve real-world problems.<br><br>- I’m currently working on Divine Foods E-Commerce Platform<br>- I’m currently learning Spring-Boot, PostgreSQL and backend engineering<br>- Fun fact: I'm incredibly passionate about music and have 4 years of experience in Music Production<br>
+<div align="center">
 
+<img src="./assets/portrait.svg" width="470" alt="Animated ASCII portrait of Praneet Nischal Tigga" />
 
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/praneettigga) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/praneet-nischal-tigga-613214324) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:praneetnischal@karunya.edu.in) 
+<img src="./assets/stats.svg" width="620" alt="GitHub contributions in the last year" />
 
-# 💻 Tech Stack:
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.shion.dev/api?username=praneettigga&theme=transparent&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://streak-stats.demolab.com/?user=praneettigga&theme=transparent&hide_border=false)<br/>
-![](https://github-readme-stats.shion.dev/api/top-langs/?username=praneettigga&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+[instagram](https://instagram.com/praneettigga) &nbsp;·&nbsp;
+[linkedin](https://linkedin.com/in/praneet-nischal-tigga-613214324) &nbsp;·&nbsp;
+[email](mailto:praneetnischal@karunya.edu.in)
 
+</div>
+
+<img src="./assets/heading-about.svg" width="620" alt="About" />
+
+> Computer Science Engineering student building practical, full-stack products.<br>
+> Interested in backend engineering, system design, Linux, and the details that make software dependable.
+
+I am currently building **Travara** and learning Spring Boot, PostgreSQL, and backend engineering.<br>
+Away from code, I have four years of experience producing music.
+
+<img src="./assets/heading-stack.svg" width="620" alt="Stack" />
+
+<samp>java &nbsp; javascript &nbsp; react &nbsp; node.js &nbsp; spring boot &nbsp; django &nbsp; postgres &nbsp; supabase &nbsp; docker &nbsp; linux</samp>
+
+<img src="./assets/heading-featured.svg" width="620" alt="Featured" />
+
+**[travara](https://github.com/praneettigga/travara)** &nbsp;·&nbsp; <samp>react, vite, nestjs, postgresql</samp><br>
+A composable AI travel-planning workspace for building realistic itineraries around time,<br>
+geography, budget, and the way people actually travel.
+
+<img src="./assets/heading-stats.svg" width="620" alt="Stats" />
+
+<div align="center">
+
+<img src="./assets/streak.svg" width="620" alt="Current and longest contribution streaks" />
+
+<img src="./assets/languages.svg" width="620" alt="Top languages across public repositories" />
+
+<img src="./assets/year.svg" width="620" alt="A year of contributions represented as characters" />
+
+</div>
+
+<img src="./assets/heading-about-this-profile.svg" width="620" alt="About this profile" />
+
+Every graphic in this README lives in this repository. The portrait is generated from a local<br>
+photo with [`scripts/make_portrait.py`](./scripts/make_portrait.py); GitHub Actions redraws the<br>
+statistics directly from GitHub once a day. The SVG animations use SMIL, so they work without<br>
+JavaScript, external image services, or third-party uptime dependencies.
+
+### Rebuilding the portrait
+
+The original photograph is deliberately not committed. Install the one local dependency and run:
+
+```bash
+python3 -m pip install -r requirements-portrait.txt
+python3 scripts/make_portrait.py /path/to/transparent-cutout.png \
+  --crop 500,0,1550,1400 \
+  --columns 90
+```
+
+Crop coordinates use source-image pixels. Transparent PNGs are composited onto white before
+conversion, preserving their real cutout edge. For images without transparency, optional
+`--mask-points` coordinates are normalized within the crop. Commit the resulting
+`assets/portrait.svg`, not the private source photograph.
+
+### Refreshing the statistics locally
+
+```bash
+GH_LOGIN=praneettigga python3 scripts/generate_stats.py
+```
+
+Without a token, the script bootstraps from GitHub's public profile and repository APIs. The
+scheduled workflow uses its built-in `GITHUB_TOKEN` and GitHub's GraphQL API instead.
