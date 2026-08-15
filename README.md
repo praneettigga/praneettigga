@@ -40,6 +40,5 @@ geography, budget, and the way people actually travel.
 
 </div>
 
-<img src="./assets/heading-about-this-profile.svg" width="620" alt="About this profile" />
 
 Inspiration Source: https://github.com/andriidrok1
