@@ -12,7 +12,7 @@ import argparse
 import base64
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 
 
 RAMP = " .,:;irsXA253hMHGS#9B&@"
@@ -52,7 +52,8 @@ def load_font(path: Path) -> str:
 
 
 def prepare(source: Path, crop: tuple[int, int, int, int] | None,
-            mask_points: list[tuple[float, float]] | None) -> Image.Image:
+            mask_points: list[tuple[float, float]] | None, contrast: float,
+            curve: float, sharpen: int, edge_boost: float) -> Image.Image:
     image = Image.open(source).convert("RGBA")
     if crop:
         image = image.crop(crop)
@@ -63,8 +64,12 @@ def prepare(source: Path, crop: tuple[int, int, int, int] | None,
     flattened = Image.alpha_composite(white, image).convert("RGB")
     gray = ImageOps.grayscale(flattened)
     gray = ImageOps.autocontrast(gray, cutoff=(1, 2))
-    gray = ImageEnhance.Contrast(gray).enhance(1.28)
-    gray = gray.filter(ImageFilter.UnsharpMask(radius=1.5, percent=125, threshold=3))
+    gray = ImageEnhance.Contrast(gray).enhance(contrast)
+    gray = gray.filter(ImageFilter.UnsharpMask(radius=1.5, percent=sharpen, threshold=2))
+    if edge_boost:
+        edges = ImageOps.invert(gray.filter(ImageFilter.FIND_EDGES))
+        edge_weighted = ImageChops.multiply(gray, edges)
+        gray = Image.blend(gray, edge_weighted, edge_boost)
 
     if mask_points:
         width, height = gray.size
@@ -76,7 +81,7 @@ def prepare(source: Path, crop: tuple[int, int, int, int] | None,
 
     # A mild darkening curve preserves eyes, glasses, lapels, and hair after the
     # image is reduced to a small character grid.
-    return gray.point(lambda value: round(255 * (value / 255) ** 1.58))
+    return gray.point(lambda value: round(255 * (value / 255) ** curve))
 
 
 def ascii_rows(image: Image.Image, columns: int) -> list[str]:
@@ -146,11 +151,25 @@ def main() -> None:
     parser.add_argument("--crop", type=parse_box)
     parser.add_argument("--mask-points", type=parse_points)
     parser.add_argument("--columns", type=int, default=82)
+    parser.add_argument("--contrast", type=float, default=1.28,
+                        help="tonal separation before character conversion (default: 1.28)")
+    parser.add_argument("--curve", type=float, default=1.58,
+                        help="darkening curve that preserves facial features (default: 1.58)")
+    parser.add_argument("--sharpen", type=int, default=125,
+                        help="unsharp-mask intensity for glasses and feature edges (default: 125)")
+    parser.add_argument("--edge-boost", type=float, default=0.0,
+                        help="darken local feature edges from 0 to 1 (default: 0)")
     parser.add_argument("--alt", default="Praneet Nischal Tigga")
     parser.add_argument("--preview", action="store_true")
     args = parser.parse_args()
+    if not 0 <= args.edge_boost <= 1:
+        parser.error("--edge-boost must be between 0 and 1")
 
-    rows = ascii_rows(prepare(args.photo, args.crop, args.mask_points), args.columns)
+    rows = ascii_rows(
+        prepare(args.photo, args.crop, args.mask_points, args.contrast, args.curve, args.sharpen,
+                args.edge_boost),
+        args.columns,
+    )
     if args.preview:
         print("\n".join(rows))
     args.output.parent.mkdir(parents=True, exist_ok=True)
